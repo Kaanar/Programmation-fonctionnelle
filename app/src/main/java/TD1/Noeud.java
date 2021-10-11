@@ -31,8 +31,11 @@ public class Noeud implements Arbre {
 	}
 
 	public Set<Integer> valeurs() {
-		// TODO Auto-generated method stub
-		return null;
+		TreeSet<Integer> rtr=new TreeSet();		
+		for(final Arbre a:fils){
+			rtr.addAll(a.valeurs());
+		}
+		return rtr;
 	}
 
 	public Integer somme() {
