@@ -89,4 +89,13 @@ public class AppTest {
 	        assertEquals(contenu, arbre2().valeurs());
 	        assertEquals(contenu, arbre3().valeurs());
 	    }
+
+
+	@Test public void testSommable(){
+		final Set<Entier> contenu=Set.of(new Entier(1),new Entier(2),new Entier(3));
+		assertEquals(Set.of(), arbre0().valeurs());
+		assertEquals(contenu, arbre1().valeurs());
+		assertEquals(contenu, arbre2().valeurs());
+		assertEquals(contenu, arbre3().valeurs());
+	}
 }

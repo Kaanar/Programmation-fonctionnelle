@@ -1,6 +1,6 @@
 package TD1.generalise;
 
-public interface Sommable {
+public interface Sommable<T> {
 
-	public <T> T sommer (final T S);
+	T sommer (final T S);
 }

@@ -1,18 +1,18 @@
 package TD1.generalise;
 
-public class Entier implements Sommable  {
+public class Entier implements Sommable<Entier>{
 		private int valeur;
 		
 		public Entier(int valeur){
 			this.valeur=valeur;
 		}
 
-	public void equals(String valeur){
-		
-	}
+		public int getValeur(){
+			return this.valeur;
+		}
 
 	@Override
-	public <T> T sommer(T S) {
-		return null;
+	public Entier sommer(Entier value){
+			return new Entier(this.valeur + value.getValeur());
 	}
 }
