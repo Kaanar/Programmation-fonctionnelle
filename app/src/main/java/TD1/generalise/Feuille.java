@@ -1,17 +1,17 @@
-package TD1;
+package TD1.generalise;
 
 import java.util.Set;
 
-public class Feuille implements Arbre {
+public class Feuille<T> implements Arbre {
 	
-	private int value;
-	public Feuille(int i) {
+	private T value;
+	public Feuille(T i) {                                                                                                                                                   
 		this.value=i;
 	}
 
 	public int taille() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	public boolean contient(Integer val) {
@@ -40,6 +40,11 @@ public class Feuille implements Arbre {
 	}
 
 	public boolean estTrie() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean contient(Object val) {
 		// TODO Auto-generated method stub
 		return false;
 	}

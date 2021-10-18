@@ -10,7 +10,6 @@ public class Feuille implements Arbre {
 	}
 
 	public int taille() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

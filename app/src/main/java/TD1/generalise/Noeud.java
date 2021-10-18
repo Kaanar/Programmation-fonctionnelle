@@ -1,9 +1,11 @@
-package TD1;
+package TD1.generalise;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.Set;
+
 
 public class Noeud implements Arbre {
 
@@ -22,14 +24,14 @@ public class Noeud implements Arbre {
 	}
 	
 
-	public boolean contient(Integer val) {
+	/*public boolean contient(T val) {
 		boolean rtr= false;
 		for(final Arbre a:fils){
 			if(a.contient(val)) return true;
 			}
 		return rtr;
 	}
-
+*/
 	public Set<Integer> valeurs() {
 		TreeSet<Integer> rtr=new TreeSet();		
 		for(final Arbre a:fils){
@@ -66,6 +68,11 @@ public class Noeud implements Arbre {
 		boolean rtr=false;
 		
 		return rtr;
+	}
+
+	public boolean contient(Object val) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
