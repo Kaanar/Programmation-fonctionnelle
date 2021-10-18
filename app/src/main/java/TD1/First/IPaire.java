@@ -1,3 +1,4 @@
+package TD1.First;
 
 public interface IPaire<A,B> {
 	A fst();

@@ -1,3 +1,4 @@
+package TD1.First;
 
 public class Paire<A,B> implements IPaire<A,B>{
 
@@ -11,7 +12,7 @@ public class Paire<A,B> implements IPaire<A,B>{
 	public B snd(){return this.snd;}
 
 	 public<T> String toString(T x,T y){
-		 return "("+x+","+y+") :: Paire["+x.getClass().getSimpleName()+","+y.getClass().getSimpleName()+"]";
+		 return "("+x+","+y+") :: TD1.First.Paire["+x.getClass().getSimpleName()+","+y.getClass().getSimpleName()+"]";
 	}
 	public <C> IPaire<C, B> changeFst(C value) {
 		Paire<C,B> a= new Paire(value,snd);

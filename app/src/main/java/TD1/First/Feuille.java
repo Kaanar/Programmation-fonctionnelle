@@ -1,10 +1,10 @@
-package TD1;
+package TD1.First;
 
 import java.util.Set;
 
-public class Feuille implements Arbre {
+public class Feuille<T> implements Arbre<T> {
 	
-	private int value;
+	private T value;
 	public Feuille(int i) {
 		this.value=i;
 	}
@@ -23,9 +23,8 @@ public class Feuille implements Arbre {
 		return null;
 	}
 
-	public Integer somme() {
-		// TODO Auto-generated method stub
-		return null;
+	public T somme() {
+		return value;
 	}
 
 	public Integer min() {

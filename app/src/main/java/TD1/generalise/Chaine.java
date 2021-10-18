@@ -16,4 +16,10 @@ public class Chaine implements Sommable<Chaine> {
         sb.append(String.format("%s%s",this,valeur.getValeur()));
         return new Chaine(sb.toString());
     }
+
+    @Override
+    public int compareTo(final Chaine e){
+        return this.valeur.compareTo(e.getValeur());
+    }
+
 }

@@ -1,7 +1,4 @@
-import TD1.generalise.Arbre;
-import TD1.generalise.Entier;
-import TD1.generalise.Feuille;
-import TD1.generalise.Noeud;
+import TD1.generalise.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,20 +13,20 @@ import java.util.Set;
 public class AppTest {
 
 
-    public static final Arbre arbre0() {
+    public static Arbre<T extends Sommable<T> & Comparable> arbre0() {
         return new Noeud(new ArrayList<Arbre>());
     }
 
     public static final Arbre arbre1() {
-        final Arbre<Integer> f1 = new Feuille<>(1);
-        final Arbre<Integer> f2 = new Feuille<>(2);
-        final Arbre<Integer> n1 = new Noeud(List.of(f1,f2));
-        final Arbre<Integer> f3 = new Feuille<>(3);
-        final Arbre<Integer> n2 = new Noeud(List.of(n1,f3));
+        final Arbre<T> f1 = new Feuille<>(1);
+        final Arbre<T> f2 = new Feuille<>(2);
+        final Arbre<T> n1 = new Noeud(List.of(f1,f2));
+        final Arbre<T> f3 = new Feuille<>(3);
+        final Arbre<T> n2 = new Noeud(List.of(n1,f3));
         return n2;
     }
 
-    public static final Arbre arbre2() {
+    public static final Arbre<T extends Sommable<T>& Comparable> arbre2() {
         final Arbre<String> f1 = new Feuille<>("2");
         final Arbre<String> f2 = new Feuille<>("3");
         final Arbre<String> n1 = new Noeud(List.of(f1,f2));
@@ -50,13 +47,13 @@ public class AppTest {
     @Test
     @SuppressWarnings("unchecked")
     public void FeuilleInt(){
-        Arbre<Integer> v= new Feuille<>(1);
+        Arbre<T> v= new Feuille<>(1);
         Assert.assertEquals(v.taille(),1);
     }
 
     @Test
     public void FeuilleString(){
-        Arbre<String> v= new Feuille<>("un");
+        Arbre<T> v= new Feuille<>("un");
         Assert.assertEquals(v.taille(),1);
     }
 
@@ -87,7 +84,7 @@ public class AppTest {
     }
 
     @Test public void testValeurs() {
-        final Set<Integer> contenu = Set.of(1,2,3);
+        final Set<Entier> contenu = Set.of(new Entier(1),new Entier(2),new Entier(3));
         assertEquals(Set.of(), arbre0().valeurs());
         assertEquals(contenu, arbre1().valeurs());
         assertEquals(contenu, arbre2().valeurs());

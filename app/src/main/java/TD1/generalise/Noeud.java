@@ -1,64 +1,79 @@
 package TD1.generalise;
 
-import java.util.HashSet;
+import TD1.generalise.Sommable;
+
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.Set;
 
+public class Noeud<T extends Sommable<T>> implements Arbre<T> {
 
-public class Noeud implements Arbre {
+	private final List<Arbre<T>> fils;
 
-	private final List<Arbre> fils;
-	
-	public Noeud(List<Arbre> fils){
+	public Noeud(List<Arbre<T>> fils){
 		this.fils= fils;
 	}
-	
+
 	public int taille() {
 		int rtr = 0;
-		for(final Arbre a:fils){
+		for(final Arbre<T> a:fils){
 			rtr+=a.taille();
 		}
 		return rtr;
 	}
-	
 
-	/*public boolean contient(T val) {
+	@Override
+	public boolean contient(T val) {
+		return false;
+	}
+
+
+	public boolean contient(Integer val) {
 		boolean rtr= false;
-		for(final Arbre a:fils){
+		for(final Arbre<T> a:fils){
 			if(a.contient(val)) return true;
-			}
+		}
 		return rtr;
 	}
-*/
+
 	public Set<Integer> valeurs() {
-		TreeSet<Integer> rtr=new TreeSet();		
-		for(final Arbre a:fils){
+		TreeSet<Integer> rtr=new TreeSet();
+		for(final Arbre<T> a:fils){
 			rtr.addAll(a.valeurs());
 		}
 		return rtr;
 	}
 
-	public Integer somme() {
-		int rtr=0;
-		for(final Arbre a:fils){
-			rtr+=a.somme();
+	@Override
+	public T somme() {
+		if(fils==null) return null;
+		else if(fils.size()==0) return null;
+		else{
+			T v= (T) fils.get(0).somme();
+			for(int i=1;i< fils.size();i++){
+				v=v.sommer(fils.get(i).somme());
+			}
+			return v;
 		}
-		return rtr;
 	}
 
-	public Integer min() {
-		TreeSet<Integer> rtr=new TreeSet();
-		for(final Arbre a:fils){
-			rtr.add(a.max());
+	public T min() {
+		if(fils==null) return null;
+		else if(fils.size()==0) return null;
+		else{
+			T v= (T) fils.get(0).min();
+			for(int i=1;i< fils.size();i++){
+				if(fils.get(i).min().compareTo(v){
+					v=v.sommer(fils.get(i).somme());
+				}
+			}
+			return v;
 		}
-		return rtr.first();
 	}
 
-	public Integer max() {
+	public T max() {
 		TreeSet<Integer> rtr=new TreeSet();
-		for(final Arbre a:fils){
+		for(final Arbre<T> a:fils){
 			rtr.add(a.max());
 		}
 		return rtr.last();
@@ -66,13 +81,8 @@ public class Noeud implements Arbre {
 
 	public boolean estTrie() {
 		boolean rtr=false;
-		
-		return rtr;
-	}
 
-	public boolean contient(Object val) {
-		// TODO Auto-generated method stub
-		return false;
+		return rtr;
 	}
 
 }

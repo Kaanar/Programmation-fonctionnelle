@@ -2,39 +2,47 @@ package TD1.generalise;
 
 import java.util.Set;
 
-public class Feuille<T> implements Arbre {
+public class Feuille<T extends Sommable<T> & Comparable> implements Arbre<T> {
 	
 	private T value;
 	public Feuille(T i) {                                                                                                                                                   
 		this.value=i;
 	}
 
+	public T getValue(){
+		return this.value;
+	}
+
+
 	public int taille() {
 		// TODO Auto-generated method stub
 		return 1;
 	}
 
-	public boolean contient(Integer val) {
-		// TODO Auto-generated method stub
-		return false;
+	@Override
+	public boolean contient(T val) {
+		if (val.equals(this.getValue())){
+			return true;
+		}
+		else return false;
 	}
 
-	public Set<Integer> valeurs() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Integer somme() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Integer min() {
+	@Override
+	public Set<T> valeurs() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Integer max() {
+	public T somme() {
+		return value;
+	}
+
+	public T min() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public T max() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -42,6 +50,11 @@ public class Feuille<T> implements Arbre {
 	public boolean estTrie() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public int compareTo() {
+		return 0;
 	}
 
 	public boolean contient(Object val) {
