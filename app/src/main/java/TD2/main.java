@@ -139,6 +139,14 @@ public class main {
             return true;
         };
     }
-    //
+    //Exercice 3 question 4
+    /*
+    * public Double moyenne(){
+    *   if(!aDEF.test(this)) return false;
+    *   return La moyenne de l'étudiant suivant la formule donnée dans l'énononcé
+    * }
+    *
+    * */
+
 
 }
