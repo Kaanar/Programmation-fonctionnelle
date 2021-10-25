@@ -122,12 +122,23 @@ public class main {
         //Exercice 3 question 2//
         Predicate<Etudiant> aDEF = x->{
             for(int i=0; i<x.getNotes().size();i++){
-                if (x.getNotes().get(x.getNotes().entrySet())==null){
+                if (x.getNotes().get(x.getNotes().keySet())==null){
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        //Exercice 3 question 3//
+        Predicate<Etudiant> aNoteEliminatoire = x->{
+            for(int i=0;i<x.getNotes().size();i++){
+                if(x.getNotes().get(x.getNotes().keySet())<6){
                     return false;
                 }
             }
             return true;
         };
     }
+    //
 
 }
