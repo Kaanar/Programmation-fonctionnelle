@@ -2,6 +2,7 @@ package TD2;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class main {
     public static void main(String[] args) {
@@ -38,5 +39,20 @@ public class main {
         Function prend un T vers U
         *
         * */
+
+        //Exercice 2 Question 1
+        Predicate<Paire<Integer,Double>> TropPetit = x -> x.fst < 100;
+        Predicate<Paire<Integer,Double>> TropGrand = x -> x.fst > 200;
+        Predicate<Paire<Integer,Double>> TailleIncorrecte = x->(TropPetit.test(x) || TropGrand.test(x));
+        Predicate<Paire<Integer,Double>> TailleCorrecte = x->(!TailleIncorrecte.test(x));
+        Predicate<Paire<Integer,Double>> TropLourd = x -> x.snd > 150.0;
+        Predicate<Paire<Integer,Double>> PoidsCorrect = x -> !TropLourd.test(x);
+        Predicate<Paire<Integer,Double>> AccesAutorise = x -> TailleCorrecte.test(x) && PoidsCorrect.test(x);
+
+        List<Paire<Integer,Double>> test;
+
+
+
     }
+
 }
