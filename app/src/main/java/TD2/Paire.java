@@ -1,5 +1,8 @@
 package TD2;
 
+import java.util.List;
+import java.util.function.Predicate;
+
 public class Paire<T,U> {
     public T fst;
     public U snd;
@@ -10,5 +13,7 @@ public class Paire<T,U> {
     @Override public String toString() {
         return String.format("(%s,%s)",fst.toString(),snd.toString());
     }
+
+
 
 }
